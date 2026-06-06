@@ -8,6 +8,7 @@ import pandas as pd
 import psycopg2
 from psycopg2 import sql
 from datetime import datetime
+import os
 import sys
 
 # ==================== DATABASE CONFIGURATION ====================
@@ -16,7 +17,7 @@ DB_CONFIG = {
     'port': 5432,
     'database': 'postgres',
     'user': 'app_user',
-    'password': 'StrongPassword123!'
+    'password': os.environ.get("WINBETS_APP_USER_DB_PASSWORD", "")
 }
 
 TABLE_NAME = 'soccer_predsv1'
