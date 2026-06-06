@@ -7,6 +7,7 @@ Updates database: agility_football_pred
 import pandas as pd
 import requests
 import time
+import os
 from datetime import datetime, timedelta
 import warnings
 import psycopg2
@@ -16,7 +17,7 @@ import json
 warnings.filterwarnings('ignore')
 
 # ==================== API CONFIGURATION ====================
-API_KEY = "633379bdd5c4c3eb26919d8570866801e1c07f399197ba8c5311446b8ea77a49"
+API_KEY = os.environ.get("FOOTYSTATS_API_KEY", "")
 
 # Try multiple API endpoint configurations
 API_CONFIGS = [
@@ -31,7 +32,7 @@ DB_CONFIG = {
     'port': 5432,
     'database': 'postgres',
     'user': 'winbets',
-    'password': 'deeptanshu@123'
+    'password': os.environ.get("WINBETS_DB_PASSWORD", "")
 }
 
 TABLE_NAME = 'agility_football_pred'
