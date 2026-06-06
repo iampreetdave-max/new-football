@@ -10,6 +10,7 @@ import pandas as pd
 import psycopg2
 from psycopg2 import sql
 from datetime import datetime
+import os
 import sys
 from pathlib import Path
 
@@ -19,7 +20,7 @@ DB_CONFIG = {
     'port': 5432,
     'database': 'postgres',
     'user': 'winbets',
-    'password': 'deeptanshu@123'
+    'password': os.environ.get("WINBETS_DB_PASSWORD", "")
 }
 
 TABLE_NAME = 'agility_football_pred'
