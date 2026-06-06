@@ -6,13 +6,14 @@ Fetches ONLY essential fields with data (removes NaN columns automatically)
 import requests
 import csv
 import json
+import os
 import pandas as pd
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional
 import time
 
 # Configuration
-API_KEY = "633379bdd5c4c3eb26919d8570866801e1c07f399197ba8c5311446b8ea77a49"
+API_KEY = os.environ.get("FOOTYSTATS_API_KEY", "")
 BASE_URL = "https://api.footystats.org"
 
 # ==================== ALLOWED LEAGUES FILTER ====================
